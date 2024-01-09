@@ -1,22 +1,31 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="your-styles.css"> <!-- Include your CSS file -->
     <title>Contact Form</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <form onsubmit="sendEmail(); resetForm(); return false;" action="#">
-            <h3 class="mb-4">GET IN TOUCH</h3>
-            <div class="form-group">
-                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+    <div class="form-testimonial">
+        <h5 class="h5-heading">GET IN TOUCH</h5>
+        <form class="form-grid" onsubmit="sendEmail(); resetForm(); return false;" action="#">
+            <div class="input-field">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" class="form-input" required>
             </div>
-            <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Email id" required>
+            <div class="input-field">
+                <label for="email" class="form-label">Email id</label>
+                <input type="email" id="email" class="form-input" required>
             </div>
-            <button type="submit" class="btn btn-success">Send</button>
+            <div class="uui-form-checkbox">
+                <div class="uui-form-checkbox-icon"></div>
+                <input type="checkbox" id="subscribe" class="uui-form-checkbox-input">
+                <label for="subscribe" class="uui-form-checkbox-label">Subscribe to newsletter</label>
+            </div>
+            <div class="form-button-wrap">
+                <button type="submit" class="button-primary-l">Send</button>
+            </div>
         </form>
     </div>
     <script>
