@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <title>Contact Form</title>
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="sendEmail(); resetForm(); return false;" action="#">
+            <h3>GET IN TOUCH</h3>
+            <input type="text" id="name" placeholder="Your Name" required> 
+            <input type="email" id="email" placeholder="Email id" required> 
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        function sendEmail() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            var emailBody = `
+                <h2>New Waitlist Signup!</h2>
+                <p>via. deliverdesk.de</p>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+            `;
+
+            Email.send({
+                Host: "smtp.ionos.de",
+                Username: "info@deliverdesk.de",
+                Password: "Kurac2003",
+                To: 'martino@klapez.com',
+                From: "you@isp.com",
+                Subject: "New Waitlist Signup!",
+                Body: emailBody,
+                isHTML: true
+            }).then(
+                message => alert(message)
+            );
+        }
+
+        function resetForm() {
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+        }
+    </script>
+</body>
+</html>
